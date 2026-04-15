@@ -1,0 +1,151 @@
+/* SECTION */
+.safety {
+  padding: 80px 0;
+  background: linear-gradient(to bottom, #fbf8f1 0%, #f3ead7 50%, #fbf8f1 100%);
+}
+
+/* CONTAINER */
+.safety-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ICON */
+.safety-icon-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.safety-icon-circle {
+  padding: 16px;
+  background: #f3ead7;
+  border-radius: 999px;
+  border: 1px solid #e4d7b6;
+  box-shadow: 0 8px 24px rgba(91, 69, 24, 0.08);
+}
+
+.safety-icon {
+  color: #b8964f;
+}
+
+/* TITLE */
+.safety-title {
+  font-size: 30px;
+  font-weight: 300;
+  color: #2d2212;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .safety-title {
+    font-size: 48px;
+  }
+}
+
+/* DESCRIPTION */
+.safety-description {
+  font-size: 20px;
+  color: #4a3b1c;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* GRID */
+.safety-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .safety-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* FEATURE CARD */
+.safety-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+
+  border-radius: 8px;
+  border: 1px solid #eadfc6;
+
+  box-shadow:
+    0 6px 20px rgba(91, 69, 24, 0.05),
+    0 2px 8px rgba(91, 69, 24, 0.03);
+}
+
+/* CHECK ICON */
+.safety-check {
+  color: #b8964f;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* FEATURE TEXT */
+.safety-feature-text {
+  color: #3a2c12;
+}
+
+/* NOTE */
+.safety-note {
+  font-size: 18px;
+  color: #5b4518;
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+/* CTA */
+.safety-cta-wrap {
+  text-align: center;
+}
+
+.safety-cta {
+  padding: 16px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  background: #c6a75e;
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+
+  box-shadow:
+    0 10px 20px rgba(184, 150, 79, 0.18),
+    0 6px 14px rgba(184, 150, 79, 0.12);
+}
+
+.safety-cta:hover {
+  background: #b8964f;
+  transform: scale(1.05);
+}
+
+@media (max-width: 1100px) {
+  .safety {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .safety-card {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: none;
+  }
+}

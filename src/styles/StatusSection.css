@@ -1,0 +1,152 @@
+/* SECTION */
+
+.status {
+  padding: 80px 0;
+  background: linear-gradient(to bottom, #fbf8f1 0%, #f3ead7 50%, #fbf8f1 100%);
+}
+
+/* CONTAINER */
+
+.status-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ICON */
+
+.status-icon-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.status-icon-circle {
+  padding: 16px;
+  background: #f3ead7;
+  border-radius: 999px;
+  border: 1px solid #e4d7b6;
+  box-shadow: 0 8px 24px rgba(91, 69, 24, 0.08);
+}
+
+.status-icon {
+  color: #b8964f;
+}
+
+/* TITLE */
+
+.status-title {
+  font-size: 30px;
+  font-weight: 300;
+  color: #2d2212;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .status-title {
+    font-size: 48px;
+  }
+}
+
+/* POINTS */
+
+.status-points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+/* CARD */
+
+.status-card {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  border-left: 4px solid #c6a75e;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #eadfc6;
+
+  box-shadow:
+    0 6px 20px rgba(91, 69, 24, 0.05),
+    0 2px 8px rgba(91, 69, 24, 0.03);
+}
+
+.status-card-text {
+  font-size: 20px;
+  color: #3a2c12;
+}
+
+/* PRICE BLOCK */
+
+.status-price-block {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.status-price {
+  font-size: 24px;
+  font-weight: 300;
+  color: #b8964f;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .status-price {
+    font-size: 30px;
+  }
+}
+
+.status-conclusion {
+  font-size: 18px;
+  color: #5b4518;
+  font-style: italic;
+}
+
+/* CTA */
+
+.status-cta-wrap {
+  text-align: center;
+}
+
+.status-cta {
+  padding: 16px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  background: #c6a75e;
+  color: white;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+
+  box-shadow:
+    0 10px 20px rgba(184, 150, 79, 0.18),
+    0 6px 14px rgba(184, 150, 79, 0.12);
+}
+
+.status-cta:hover {
+  background: #b8964f;
+  transform: scale(1.05);
+}
+
+@media (max-width: 1100px) {
+  .status-card-text {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .status-card {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: none;
+  }
+}

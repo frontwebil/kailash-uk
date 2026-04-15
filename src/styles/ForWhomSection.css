@@ -1,0 +1,162 @@
+/* SECTION */
+.forwhom {
+  padding: 80px 0;
+  background: linear-gradient(to bottom, #fbf8f1, #f3ead7);
+}
+
+/* CONTAINER */
+.forwhom-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* TITLE */
+.forwhom-title {
+  font-size: 30px;
+  font-weight: 300;
+  color: #2d2212;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+@media (min-width: 768px) {
+  .forwhom-title {
+    font-size: 48px;
+  }
+}
+
+/* INNER WRAP */
+.forwhom-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* CARD */
+.forwhom-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 32px;
+  border: 1px solid #eadfc6;
+  box-shadow:
+    0 10px 30px rgba(91, 69, 24, 0.06),
+    0 2px 8px rgba(91, 69, 24, 0.04);
+}
+
+/* CARD HEAD */
+.forwhom-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.forwhom-icon-wrap {
+  padding: 12px;
+  background: #f3ead7;
+  border-radius: 8px;
+  border: 1px solid #e4d7b6;
+}
+
+.forwhom-icon {
+  color: #b8964f;
+}
+
+/* CARD TITLE */
+.forwhom-card-title {
+  font-size: 24px;
+  font-weight: 300;
+  color: #2d2212;
+}
+
+@media (min-width: 768px) {
+  .forwhom-card-title {
+    font-size: 30px;
+  }
+}
+
+/* TEXT */
+.forwhom-text {
+  font-size: 18px;
+  color: #4a3b1c;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+/* small utility */
+.mb4 {
+  margin-bottom: 16px;
+}
+
+/* LIST */
+.forwhom-list {
+  margin: 0 0 24px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.forwhom-li {
+  color: #3a2c12;
+  margin-left: 16px;
+}
+
+/* NOTE */
+.forwhom-note {
+  font-size: 18px;
+  color: #6b5422;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* CTA */
+.forwhom-cta-wrap {
+  text-align: center;
+  padding-top: 32px;
+}
+
+.forwhom-cta {
+  padding: 16px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+  background: #c6a75e;
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+  transform: translateZ(0);
+
+  box-shadow:
+    0 10px 20px rgba(184, 150, 79, 0.18),
+    0 6px 14px rgba(184, 150, 79, 0.12);
+}
+
+.forwhom-cta:hover {
+  background: #b8964f;
+  transform: scale(1.05);
+}
+
+@media (max-width: 1000px) {
+  .forwhom {
+    padding: 40px 0;
+  }
+
+  .forwhom-card-head {
+    align-items: flex-start;
+  }
+
+  .forwhom-card{
+    padding: 24px;
+  }
+}
