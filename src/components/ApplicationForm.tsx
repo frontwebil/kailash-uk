@@ -10,15 +10,14 @@ interface ApplicationFormProps {
 
 export function ApplicationForm({ isOpen, onClose }: ApplicationFormProps) {
   const navigate = useNavigate();
-  const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_BOT_API_KEY;
-  const TELEGRAM_CHAT_ID = import.meta.env.VITE_CHAT_ID;
-  const URI_API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
   const { t } = useLanguage();
+
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
     email: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -34,41 +33,44 @@ export function ApplicationForm({ isOpen, onClose }: ApplicationFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     setIsSubmitting(true);
     setError("");
 
-    const inputContents = [
-      "*Заявка з сайту Манасовар/Кайлаш",
-      "",
-      `*Ім'я: ${formData.name}`,
-      `*Номер телефону: ${formData.contact}`,
-      `*Пошта: ${formData.email ?? "Не вказано"}`,
-    ];
-
-    const message = inputContents.join("\n");
-
     try {
-      await fetch(URI_API, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://kailash-backend.vercel.app/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name.trim(),
+            phone: formData.contact.trim(),
+            email: formData.email.trim(),
+            comment: "",
+          }),
         },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: message,
-        }),
-      });
+      );
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Не удалось отправить заявку");
+      }
 
       setFormData({
         name: "",
         contact: "",
         email: "",
       });
-      navigate("/thank");
-      return;
+
+      setIsSuccess(true);
     } catch (error) {
-      console.error("Telegram notification error:", error);
-      throw new Error("Failed to send booking notification");
+      console.error("Ошибка отправки формы:", error);
+
+      setError("Не удалось отправить заявку. Попробуйте ещё раз.");
     } finally {
       setIsSubmitting(false);
     }
@@ -102,13 +104,15 @@ export function ApplicationForm({ isOpen, onClose }: ApplicationFormProps) {
               <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full border border-[#e4d7b6] bg-[#f3ead7]">
                 <Send className="text-[#b8964f]" size={32} />
               </div>
+
               <p className="text-lg text-[#5b4518]">{t.form.success}</p>
-              <a
-                href="/"
-                className="block w-full mt-5 rounded-lg bg-[#c6a75e] px-6 py-4 font-medium text-white transition-all hover:scale-105 hover:bg-[#b8964f] disabled:cursor-not-allowed disabled:bg-[#cbb98e] disabled:hover:scale-100 shadow-[0_12px_24px_rgba(184,150,79,0.22)]"
+
+              <button
+                onClick={() => navigate("/")}
+                className="block w-full mt-5 rounded-lg bg-[#c6a75e] px-6 py-4 font-medium text-white transition-all hover:scale-105 hover:bg-[#b8964f] shadow-[0_12px_24px_rgba(184,150,79,0.22)]"
               >
                 На головну
-              </a>
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -119,6 +123,7 @@ export function ApplicationForm({ isOpen, onClose }: ApplicationFormProps) {
                 >
                   {t.form.name}
                 </label>
+
                 <input
                   type="text"
                   id="name"
@@ -138,6 +143,7 @@ export function ApplicationForm({ isOpen, onClose }: ApplicationFormProps) {
                 >
                   {t.form.contact}
                 </label>
+
                 <input
                   type="text"
                   id="contact"
@@ -157,6 +163,7 @@ export function ApplicationForm({ isOpen, onClose }: ApplicationFormProps) {
                 >
                   {t.form.email}
                 </label>
+
                 <input
                   type="email"
                   id="email"
